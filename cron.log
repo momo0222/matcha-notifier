@@ -1,8 +1,0 @@
-=== Matcha checker started at Wed 18 Jun 13:25:01 PDT 2025 ===
-HEAD is now at 788bc60 Update index.html
-Traceback (most recent call last):
-  File "/home/joyraspberrypi/Desktop/matcha-notifier/matcha-checker.py", line 21, in <module>
-    EMAIL_ADDRESS = os.environ['EMAIL_ADDRESS']
-                    ~~~~~~~~~~^^^^^^^^^^^^^^^^^
-  File "<frozen os>", line 679, in __getitem__
-KeyError: 'EMAIL_ADDRESS'
