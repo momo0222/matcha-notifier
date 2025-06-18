@@ -17,7 +17,9 @@ now = datetime.now(pacific)
 
 url = 'https://www.marukyu-koyamaen.co.jp/english/shop/products/1191040c1?currency=USD'
 # url = 'https://www.marukyu-koyamaen.co.jp/english/shop/products/1g28200c6?currency=USD'
-
+print("EMAIL_ADDRESS:", os.environ.get("EMAIL_ADDRESS"))
+print("EMAIL_PASSWORD:", os.environ.get("EMAIL_PASSWORD"))
+print("TO_EMAIL:", os.environ.get("TO_EMAIL"))
 EMAIL_ADDRESS = os.environ['EMAIL_ADDRESS']
 EMAIL_PASSWORD = os.environ['EMAIL_PASSWORD']
 TO_EMAIL = os.environ['TO_EMAIL']
