@@ -4,8 +4,8 @@ import ssl
 from bs4 import BeautifulSoup
 from email.message import EmailMessage
 import os
-from dotenv import load_dotenv
-load_dotenv()
+# from dotenv import load_dotenv
+# load_dotenv()
 
 
 url = 'https://www.marukyu-koyamaen.co.jp/english/shop/products/1191040c1?currency=USD'
