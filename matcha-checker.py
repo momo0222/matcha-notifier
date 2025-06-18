@@ -9,6 +9,10 @@ import json
 # from dotenv import load_dotenv
 # load_dotenv()
 
+import pytz
+
+pacific = pytz.timezone("America/Los_Angeles")
+now = datetime.now(pacific)
 
 url = 'https://www.marukyu-koyamaen.co.jp/english/shop/products/1191040c1?currency=USD'
 # url = 'https://www.marukyu-koyamaen.co.jp/english/shop/products/1g28200c6?currency=USD'
@@ -74,7 +78,7 @@ if __name__ == '__main__':
             print(f"⚠️ Error checking {name}: {e}")
 
     status = {
-        "last_updated": datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S UTC"),
+        "last_updated": now.strftime("%Y-%m-%d %H:%M:%S UTC"),
         "matchas": matchas
     }
 

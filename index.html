@@ -19,7 +19,7 @@
   <ul id="matcha-list">Loading...</ul>
 
   <script>
-  fetch('status.json')
+  fetch('status.json?ts=' + new Date().getTime())
     .then(response => response.json())
     .then(data => {
       const list = document.getElementById('matcha-list');
