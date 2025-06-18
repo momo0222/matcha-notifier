@@ -4,6 +4,8 @@ import ssl
 from bs4 import BeautifulSoup
 from email.message import EmailMessage
 import os
+from datetime import datetime
+import json
 # from dotenv import load_dotenv
 # load_dotenv()
 
@@ -14,13 +16,25 @@ url = 'https://www.marukyu-koyamaen.co.jp/english/shop/products/1191040c1?curren
 EMAIL_ADDRESS = os.environ['EMAIL_ADDRESS']
 EMAIL_PASSWORD = os.environ['EMAIL_PASSWORD']
 TO_EMAIL = os.environ['TO_EMAIL']
-matchas = {
-    'Isuzu': 'https://www.marukyu-koyamaen.co.jp/english/shop/products/1191040c1?currency=USD',
-    'Wako': 'https://www.marukyu-koyamaen.co.jp/english/shop/products/1161020c1?currency=USD',
-    'Yugen': 'https://www.marukyu-koyamaen.co.jp/english/shop/products/1171020c1?currency=USD',
-    'Aoarashi': 'https://www.marukyu-koyamaen.co.jp/english/shop/products/11a1040c1?currency=USD',
-    # 'Hojicha': 'https://www.marukyu-koyamaen.co.jp/english/shop/products/1g28200c6?currency=USD'
 
+matchas = {
+    'Isuzu': {
+        'url': 'https://www.marukyu-koyamaen.co.jp/english/shop/products/1191040c1?currency=USD',
+        'in_stock': None
+    },
+    'Wako': {
+        'url': 'https://www.marukyu-koyamaen.co.jp/english/shop/products/1161020c1?currency=USD',
+        'in_stock': None
+    },
+    'Yugen': {
+        'url': 'https://www.marukyu-koyamaen.co.jp/english/shop/products/1171020c1?currency=USD',
+        'in_stock': None
+    },
+    'Aoarashi': {
+        'url': 'https://www.marukyu-koyamaen.co.jp/english/shop/products/11a1040c1?currency=USD',
+        'in_stock': None
+    }
+    # Add more if needed
 }
 def is_in_stock(url):
     headers = {'User-Agent': 'Mozilla/5.0'}
@@ -43,12 +57,31 @@ def send_email(name, url):
     
 
 if __name__ == '__main__':
-    for name, url in matchas.items():
+    for name, info in matchas.items():
         try:
-            if is_in_stock(url):
-                print(f"In stock: {name}")
-                send_email(name, url)
+            url = info['url']
+            in_stock = is_in_stock(url)
+            matchas[name]['in_stock'] = in_stock
+
+            if in_stock:
+                print(f"✅ In stock: {name}")
+                if EMAIL_ADDRESS and EMAIL_PASSWORD and TO_EMAIL:
+                    send_email(name, url)
             else:
-                print(f"Sold out: {name}")
+                print(f"❌ Sold out: {name}")
+
         except Exception as e:
-            print(f"Error checking {name}: {e}")
+            print(f"⚠️ Error checking {name}: {e}")
+
+    status = {
+        "last_updated": datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S UTC"),
+        "matchas": matchas
+    }
+
+    with open('status.json', 'w') as f:
+        json.dump(status, f, indent=2)
+        print("📁 status.json saved with last_updated timestamp")
+
+
+
+
