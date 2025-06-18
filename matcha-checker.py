@@ -38,6 +38,10 @@ matchas = {
     'Aoarashi': {
         'url': 'https://www.marukyu-koyamaen.co.jp/english/shop/products/11a1040c1?currency=USD',
         'in_stock': None
+    },
+    'Hojicha':{
+        'url' :'https://www.marukyu-koyamaen.co.jp/english/shop/products/1g28200c6?currency=USD',
+        'in_stock': None
     }
     # Add more if needed
 }
