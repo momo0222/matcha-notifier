@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-06-18 12:46:56 UTC",
+  "last_updated": "2025-06-18 14:17:03 UTC",
   "matchas": {
     "Isuzu": {
       "url": "https://www.marukyu-koyamaen.co.jp/english/shop/products/1191040c1?currency=USD",
@@ -16,6 +16,10 @@
     "Aoarashi": {
       "url": "https://www.marukyu-koyamaen.co.jp/english/shop/products/11a1040c1?currency=USD",
       "in_stock": false
+    },
+    "Hojicha": {
+      "url": "https://www.marukyu-koyamaen.co.jp/english/shop/products/1g28200c6?currency=USD",
+      "in_stock": true
     }
   }
 }
