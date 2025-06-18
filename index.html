@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Matcha Stock Dashboard</title>
+  <style>
+    body { font-family: sans-serif; padding: 2rem; background: #f8f8f8; }
+    h1 { color: green; }
+    li { margin-bottom: 1em; }
+    .stocked { color: green; font-weight: bold; }
+    .soldout { color: gray; }
+  </style>
+</head>
+<body>
+  <h1>🍵 Matcha Stock Dashboard</h1>
+  <p id="last-updated">Loading time...</p>
+
+  <ul id="matcha-list">Loading...</ul>
+
+  <script>
+  fetch('status.json')
+    .then(response => response.json())
+    .then(data => {
+      const list = document.getElementById('matcha-list');
+      const time = document.getElementById('last-updated');
+
+      list.innerHTML = '';
+      time.innerText = `🕒 Last checked: ${data.last_updated}`;
+
+      for (const [name, info] of Object.entries(data.matchas)) {
+        const li = document.createElement('li');
+        if (info.in_stock) {
+          li.innerHTML = `<span class="stocked">✅ <strong>${name}</strong> is in stock — <a href="${info.url}" target="_blank">Buy Now</a></span>`;
+        } else {
+          li.innerHTML = `<span class="soldout">❌ ${name} is sold out.</span>`;
+        }
+        list.appendChild(li);
+      }
+    })
+    .catch(err => {
+      document.getElementById('matcha-list').innerText = '⚠️ Could not load matcha status.';
+      console.error('Error loading JSON:', err);
+    });
+</script>
+
+</body>
+</html>
