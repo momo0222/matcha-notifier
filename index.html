@@ -27,7 +27,7 @@
       const time = document.getElementById('last-updated');
 
       list.innerHTML = '';
-      time.innerText = `🕒 Last checked: ${data.last_updated}`;
+      time.innerText = `🕒 Last checked: ${data.last_updated} (Will not change unless stock has updated)`;
 
       for (const [name, info] of Object.entries(data.matchas)) {
         const li = document.createElement('li');
