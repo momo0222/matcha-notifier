@@ -1,4 +1,21 @@
 {
-  "last_updated": "Not yet run",
-  "matchas": {}
+  "last_updated": "2025-06-18 18:11:33 UTC",
+  "matchas": {
+    "Isuzu": {
+      "url": "https://www.marukyu-koyamaen.co.jp/english/shop/products/1191040c1?currency=USD",
+      "in_stock": false
+    },
+    "Wako": {
+      "url": "https://www.marukyu-koyamaen.co.jp/english/shop/products/1161020c1?currency=USD",
+      "in_stock": false
+    },
+    "Yugen": {
+      "url": "https://www.marukyu-koyamaen.co.jp/english/shop/products/1171020c1?currency=USD",
+      "in_stock": false
+    },
+    "Aoarashi": {
+      "url": "https://www.marukyu-koyamaen.co.jp/english/shop/products/11a1040c1?currency=USD",
+      "in_stock": false
+    }
+  }
 }
