@@ -18,7 +18,8 @@ matchas = {
     'Isuzu': 'https://www.marukyu-koyamaen.co.jp/english/shop/products/1191040c1?currency=USD',
     'Wako': 'https://www.marukyu-koyamaen.co.jp/english/shop/products/1161020c1?currency=USD',
     'Yugen': 'https://www.marukyu-koyamaen.co.jp/english/shop/products/1171020c1?currency=USD',
-    'Aoarashi': 'https://www.marukyu-koyamaen.co.jp/english/shop/products/11a1040c1?currency=USD'
+    'Aoarashi': 'https://www.marukyu-koyamaen.co.jp/english/shop/products/11a1040c1?currency=USD',
+    # 'Hojicha': 'https://www.marukyu-koyamaen.co.jp/english/shop/products/1g28200c6?currency=USD'
 
 }
 def is_in_stock(url):
