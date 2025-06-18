@@ -1,9 +1,9 @@
 name: Matcha Stock Checker
 
-on:
-  schedule:
-    - cron: "* * * * *"
-  workflow_dispatch:
+# on:
+#   schedule:
+#     - cron: "* * * * *"
+#   workflow_dispatch:
 
 jobs:
   check:
