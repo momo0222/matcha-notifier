@@ -78,14 +78,21 @@ if __name__ == '__main__':
         except Exception as e:
             print(f"⚠️ Error checking {name}: {e}")
 
-    status = {
+    new_data = {
         "last_updated": now.strftime("%Y-%m-%d %H:%M:%S UTC"),
         "matchas": matchas
     }
-
-    with open('status.json', 'w') as f:
-        json.dump(status, f, indent=2)
-        print("📁 status.json saved with last_updated timestamp")
+    try:
+        with open("status.json", "r") as f:
+            old_data = json.load(f)
+    except FileNotFoundError:
+        old_data = {}
+    if old_data.get("matchas") != new_data["matchas"]:
+        print("🆕 Matcha stock changed — updating file.")
+        with open("status.json", "w") as f:
+            json.dump(new_data, f, indent=2)
+    else:
+        print("✅ Matcha stock is the same — skipping update.")
 
 
 
