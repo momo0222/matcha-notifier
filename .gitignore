@@ -1,3 +1,5 @@
 run.sh
 cron.log
 log.txt
+ping.log
+cron-test.log
