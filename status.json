@@ -1,9 +1,9 @@
 {
-  "last_updated": "2025-06-24 05:26:03 UTC",
+  "last_updated": "2025-06-24 05:43:04 UTC",
   "matchas": {
     "Isuzu": {
       "url": "https://www.marukyu-koyamaen.co.jp/english/shop/products/1191040c1?currency=USD",
-      "in_stock": null
+      "in_stock": false
     },
     "Wako": {
       "url": "https://www.marukyu-koyamaen.co.jp/english/shop/products/1161020c1?currency=USD",
